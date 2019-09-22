@@ -2,17 +2,17 @@
 
 A simple Web screenshot CLI using [GoogleChrome/pupeteer](https://github.com/GoogleChrome/puppeteer).
 
-## CLI usage:
+## CLI usage
 
 execute CLI as below.
 
-```
+```console
 npx ./src/take-ss [Options] targetUrl
 ```
 
 with some options.
 
-```
+```console
 Usage: take-ss [options]
 
 Options:
@@ -27,22 +27,27 @@ Options:
 
 Example 1. take screenshot and get output as speciried filename.
 
-```
+```console
 npx ./src/take-ss -o example.com.png http://www.example.com
 ```
 
 Example 2. take full-page screenshot and get output as speciried filename.
 
-```
+```console
 npx ./src/take-ss -f -o example.com.png http://www.example.com
 ```
 
 Example 3. take screenshot in base64 encoded format, inside the JSON file with metadata (title & description)
 
-```
+```console
 npx ./src/take-ss -j http://www.example.com > out.json
 ```
 
+With "-j" option, this script returns JSON containing
+
+- base64img: Screenshot encoded in base64 string
+- description: description of the site, in HTML Meta-tag
+- title: title of the site, in HTML
 
 ## JavaScript
 
