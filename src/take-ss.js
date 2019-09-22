@@ -49,7 +49,10 @@ async function invokePupeteer(params) {
     )
     var browser
     try {
-        browser = await puppeteer.launch()
+        browser = await puppeteer.launch({
+            executablePath: process.env.CHROME_BIN || null,
+            args: ['--no-sandbox', '--headless', '--disable-gpu']
+        })
         const page = await browser.newPage()
 
         page.setViewport({

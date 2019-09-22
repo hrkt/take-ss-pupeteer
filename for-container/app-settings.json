@@ -1,0 +1,8 @@
+{
+    "dangerousMode": false,
+    "port": 8080,
+    "whitelist": [
+        "/api/takess"
+    ]
+}
+
