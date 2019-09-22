@@ -1,0 +1,32 @@
+{
+  "name": "screen-shot-api",
+  "version": "0.1.0",
+  "description": "",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "exec": "npx ./src/take-ss.js http://www.yahoo.co.jp",
+    "eslint": "npx eslint ./src/take-ss.js",
+    "eslint-fix": "npx eslint --fix ./src/take-ss.js",
+    "help": "npx ./src/take-ss.js -h",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^3.0.1",
+    "log4js": "^5.1.0",
+    "puppeteer": "^1.20.0",
+    "puppeteer-core": "^1.20.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
+  }
+}

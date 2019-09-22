@@ -1,0 +1,9 @@
+{
+    "appenders": {
+        "out": { "type": "console" },
+        "file": {"type": "file", "filename": "log/screenshot.log"}
+    },
+    "categories": {
+        "default": { "appenders": ["file"], "level": "debug" }
+    }
+}
