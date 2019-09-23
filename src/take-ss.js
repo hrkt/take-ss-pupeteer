@@ -51,7 +51,7 @@ async function invokePupeteer(params) {
     try {
         browser = await puppeteer.launch({
             executablePath: process.env.CHROME_BIN || null,
-            args: ['--no-sandbox', '--headless', '--disable-gpu']
+            args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage']
         })
         const page = await browser.newPage()
 
@@ -59,7 +59,8 @@ async function invokePupeteer(params) {
             width: params.pageWidth,
             height: params.pageHeight,
         })
-        await page.goto(params.targetUrl, { waitUntil: 'networkidle2' })
+        //await page.goto(params.targetUrl, { waitUntil: 'networkidle2' })
+        await page.goto(params.targetUrl, { waitUntil: 'domcontentloaded' })
         const description = await page.$eval(
             'head > meta[name="description"]',
             element => element.content
@@ -107,10 +108,14 @@ function main() {
     params.filename = program.outputAsJson ? null : program.outputFilename
     params.fullPage = false
     params.outputAsJson = program.outputAsJson
+    if(process.env.TAKE_SS_SERVERSIDE_MODE) {
+        params.filename = null
+        params.outputAsJson = true
+    }
     ;(async () => {
         try {
             const result = await invokePupeteer(params)
-            if (program.outputAsJson) {
+            if (params.outputAsJson) {
                 // use this 'base64str' string with
                 // <img src="data:image/png;base64,${base64str}">
                 console.log(JSON.stringify(result).toString('utf8'))
