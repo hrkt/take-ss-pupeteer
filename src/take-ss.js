@@ -61,11 +61,21 @@ async function invokePupeteer(params) {
         })
         //await page.goto(params.targetUrl, { waitUntil: 'networkidle2' })
         await page.goto(params.targetUrl, { waitUntil: 'domcontentloaded' })
-        const description = await page.$eval(
-            'head > meta[name="description"]',
-            element => element.content
-        )
-        const title = await page.title()
+        let description = ''
+        try {
+            description = await page.$eval(
+                'head > meta[name="description"]',
+                element => element.content
+            )
+        } catch (error) {
+            logger.info(error)
+        }
+        let title = ''
+        try {
+            title = await page.title()
+        } catch (error) {
+            logger.info(error)
+        }
         logger.debug('%s %s', title, description)
         const result = await page.screenshot({
             path: params.filename,
