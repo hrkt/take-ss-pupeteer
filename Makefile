@@ -19,3 +19,8 @@ check-container:
 
 push-container:
 	sudo docker push $(LABEL) hrkt/$(LABEL)
+
+test:
+	rm -f test.png
+	node src/take-ss.js -o test.png http://www.google.com
+	ls -la test.png
