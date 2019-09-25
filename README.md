@@ -85,4 +85,4 @@ MIT
 
 ## CI
 
-![](https://github.com/hrkt/https://github.com/hrkt/take-ss-pupeteer/workflows/Node%20CI/badge.svg)
+![](https://github.com/hrkt/take-ss-pupeteer/workflows/Node%20CI/badge.svg)
