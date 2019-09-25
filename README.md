@@ -85,3 +85,4 @@ MIT
 
 ## CI
 
+(https://github.com/hrkt/take-sa-puppeteer/workflows/Node%20CI/badge.svg)
