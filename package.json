@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^3.0.1",
-    "log4js": "^5.1.0",
+    "log4js": "^6.4.0",
     "puppeteer": "^1.20.0"
   },
   "devDependencies": {
